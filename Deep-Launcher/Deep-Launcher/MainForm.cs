@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Deep_Launcher
 {
-    public partial class mainForm : Form
+    public partial class MainForm : Form
     {
-        public mainForm()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace Deep_Launcher
         {
             var styleList = new List<ButtonStyle>();
 
-            configForm cf = new configForm(styleList);
+            ConfigurationForm cf = new ConfigurationForm(styleList);
             if(cf.ShowDialog() == DialogResult.OK)
             {
                 Console.WriteLine("hello");

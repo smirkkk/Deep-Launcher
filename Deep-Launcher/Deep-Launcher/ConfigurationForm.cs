@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Deep_Launcher
 {
-    public partial class configForm : Form
+    public partial class ConfigurationForm : Form
     {
         private List<ButtonStyle> styleList;
 
-        public configForm(List<ButtonStyle> styleList)
+        public ConfigurationForm(List<ButtonStyle> styleList)
         {
             InitializeComponent();
             this.styleList = styleList;
