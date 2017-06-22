@@ -68,7 +68,12 @@ namespace Deep_Launcher
 
         private void OKbutton_Click(object sender, EventArgs e)
         {
-            styleList.Add(new ButtonStyle { Title = previewButton.Text, Path = directoryTextbox.Text, Color = previewButton.ForeColor, Font = previewButton.Font });
+                styleList.Add(new ButtonStyle { Title = previewButton.Text, Path = directoryTextbox.Text, Color = previewButton.ForeColor, Font = previewButton.Font, Filename = label4.Text });
+        }
+
+        private void directoryTextbox_TextChanged(object sender, EventArgs e)
+        {
+            OKbutton.Enabled = true;
         }
     }
 }

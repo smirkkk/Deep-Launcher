@@ -72,6 +72,7 @@
             this.directoryTextbox.ReadOnly = true;
             this.directoryTextbox.Size = new System.Drawing.Size(256, 21);
             this.directoryTextbox.TabIndex = 1;
+            this.directoryTextbox.TextChanged += new System.EventHandler(this.directoryTextbox_TextChanged);
             // 
             // openFileDialog
             // 
@@ -162,6 +163,7 @@
             // OKbutton
             // 
             this.OKbutton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.OKbutton.Enabled = false;
             this.OKbutton.Location = new System.Drawing.Point(279, 313);
             this.OKbutton.Name = "OKbutton";
             this.OKbutton.Size = new System.Drawing.Size(75, 23);
@@ -248,13 +250,13 @@
             this.editTab.Text = "Edit";
             this.editTab.UseVisualStyleBackColor = true;
             // 
-            // configForm
+            // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 403);
             this.Controls.Add(this.tabControl1);
-            this.Name = "configForm";
+            this.Name = "ConfigurationForm";
             this.Text = "Setting";
             this.Load += new System.EventHandler(this.configForm_Load);
             this.tabControl1.ResumeLayout(false);

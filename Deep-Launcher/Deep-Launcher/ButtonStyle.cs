@@ -13,5 +13,6 @@ namespace Deep_Launcher
         public Color Color { get; set; }
         public Font Font { get; set; }
         public string Title { get; set; }
+        public string Filename { get; set; }
     }
 }
