@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +15,18 @@ namespace Deep_Launcher
     public partial class MainForm : Form
     {
         List<Button> Buttons = new List<Button>();
+        List<ButtonStyle> ButtonStyles = new List<ButtonStyle>();
+        Settings settings => Settings.Default;
 
         public MainForm()
         {
             InitializeComponent();
-            
+            ButtonStyles = /*JsonConvert.DeserializeObject<List<ButtonStyle>>(settings.Json) ??*/ new List<ButtonStyle>();
+
+            foreach (var item in ButtonStyles)
+            {
+                addButton(item);
+            }
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -27,33 +36,45 @@ namespace Deep_Launcher
 
         private void configButton_Click(object sender, EventArgs e)
         {
-            var styleList = new List<ButtonStyle>();
+            ConfigurationForm form = new ConfigurationForm(ButtonStyles);
 
-            ConfigurationForm cf = new ConfigurationForm(styleList);
-            if(cf.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
-                addButton(styleList);
+                addButton(ButtonStyles[ButtonStyles.Count - 1]);
             }
         }
 
-        private void addButton(List<ButtonStyle> styleList)
+        private void addButton(ButtonStyle style)
         {
-            Button b = new Button();
-            b.Text = styleList[0].Title;
-            b.Name = styleList[0].Title;
-            b.Size = new Size(50, 50);
-            b.ForeColor = styleList[0].Color;
-            b.Font = styleList[0].Font;
-            b.Location = new Point(3 + (50 * Buttons.Count), 2);
-            b.Click += new EventHandler(startLauncher);
-            this.Controls.Add(b);
-            Buttons.Add(b);
+            Button button = new Button
+            {
+                Text = style.Title,
+                Name = style.Title,
+                Size = new Size(50, 50),
+                ForeColor = style.Color,
+                Font = style.Font,
+                Location = new Point(3 + (50 * Buttons.Count), 2),
+                Tag = new[] { style.Path, style.Filename }
+            };
+
+            button.Click += startLauncher;
+
+            this.Controls.Add(button);
+            Buttons.Add(button);
         }
 
         void startLauncher(object sender, EventArgs e)
         {
-            Button b = sender as Button;
-            MessageBox.Show(b.Text);
+            Button button = sender as Button;
+            string[] tag = button.Tag as string[];
+
+            System.Diagnostics.Process.Start(tag[0]);
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            settings.Json = JsonConvert.SerializeObject(ButtonStyles);
+            settings.Save();
         }
     }
 }
