@@ -18,6 +18,18 @@ namespace Deep_Launcher
         {
             InitializeComponent();
             this.styleList = styleList;
+
+            if (styleList.Count != 0)
+            {
+                editPreviewButton.Text = styleList[0].Title;
+                editPreviewButton.ForeColor = styleList[0].Color;
+                editPreviewButton.Font = styleList[0].Font;
+                editSelectedFileTextBox.Text = styleList[0].Path;
+                editButtonNameTextBox.Text = styleList[0].Title;
+                label8.Text = styleList[0].Filename;
+            }
+
+
         }
 
         private void fileOpenButton_Click(object sender, EventArgs e)
@@ -74,6 +86,21 @@ namespace Deep_Launcher
         private void directoryTextbox_TextChanged(object sender, EventArgs e)
         {
             OKbutton.Enabled = true;
+        }
+
+        private void editOpenFileButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                editSelectedFileTextBox.Text = openFileDialog.FileName;
+                label8.Text = openFileDialog.SafeFileName;
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            var updown = sender as NumericUpDown;
+
         }
     }
 }

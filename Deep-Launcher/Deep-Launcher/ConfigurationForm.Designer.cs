@@ -46,10 +46,29 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.editTab = new System.Windows.Forms.TabPage();
+            this.editPreviewGroupBox = new System.Windows.Forms.GroupBox();
+            this.editPreviewButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.editFontColorComboBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.editFontSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.editButtonNameTextBox = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.editOpenFileButton = new System.Windows.Forms.Button();
+            this.editSelectedFileTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.editTab.SuspendLayout();
+            this.editPreviewGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editFontSizeNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // fileOpenButton
@@ -168,7 +187,7 @@
             this.OKbutton.Name = "OKbutton";
             this.OKbutton.Size = new System.Drawing.Size(75, 23);
             this.OKbutton.TabIndex = 6;
-            this.OKbutton.Text = "OK";
+            this.OKbutton.Text = "Add";
             this.OKbutton.UseVisualStyleBackColor = true;
             this.OKbutton.Click += new System.EventHandler(this.OKbutton_Click);
             // 
@@ -187,7 +206,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 46);
+            this.label4.Location = new System.Drawing.Point(70, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 12);
             this.label4.TabIndex = 2;
@@ -196,7 +215,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(62, 29);
+            this.label3.Location = new System.Drawing.Point(70, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 12);
             this.label3.TabIndex = 1;
@@ -208,7 +227,7 @@
             this.previewButton.ForeColor = System.Drawing.Color.Black;
             this.previewButton.Location = new System.Drawing.Point(6, 20);
             this.previewButton.Name = "previewButton";
-            this.previewButton.Size = new System.Drawing.Size(50, 50);
+            this.previewButton.Size = new System.Drawing.Size(58, 58);
             this.previewButton.TabIndex = 0;
             this.previewButton.Text = "untitled";
             this.previewButton.UseVisualStyleBackColor = true;
@@ -242,6 +261,16 @@
             // 
             // editTab
             // 
+            this.editTab.Controls.Add(this.editFontColorComboBox);
+            this.editTab.Controls.Add(this.label10);
+            this.editTab.Controls.Add(this.editFontSizeNumericUpDown);
+            this.editTab.Controls.Add(this.label11);
+            this.editTab.Controls.Add(this.editButtonNameTextBox);
+            this.editTab.Controls.Add(this.label12);
+            this.editTab.Controls.Add(this.label13);
+            this.editTab.Controls.Add(this.editOpenFileButton);
+            this.editTab.Controls.Add(this.editSelectedFileTextBox);
+            this.editTab.Controls.Add(this.editPreviewGroupBox);
             this.editTab.Location = new System.Drawing.Point(4, 22);
             this.editTab.Name = "editTab";
             this.editTab.Padding = new System.Windows.Forms.Padding(3);
@@ -249,6 +278,160 @@
             this.editTab.TabIndex = 1;
             this.editTab.Text = "Edit";
             this.editTab.UseVisualStyleBackColor = true;
+            // 
+            // editPreviewGroupBox
+            // 
+            this.editPreviewGroupBox.Controls.Add(this.numericUpDown1);
+            this.editPreviewGroupBox.Controls.Add(this.label9);
+            this.editPreviewGroupBox.Controls.Add(this.label8);
+            this.editPreviewGroupBox.Controls.Add(this.label7);
+            this.editPreviewGroupBox.Controls.Add(this.editPreviewButton);
+            this.editPreviewGroupBox.Location = new System.Drawing.Point(17, 12);
+            this.editPreviewGroupBox.Name = "editPreviewGroupBox";
+            this.editPreviewGroupBox.Size = new System.Drawing.Size(337, 128);
+            this.editPreviewGroupBox.TabIndex = 0;
+            this.editPreviewGroupBox.TabStop = false;
+            this.editPreviewGroupBox.Text = "Preview";
+            // 
+            // editPreviewButton
+            // 
+            this.editPreviewButton.Location = new System.Drawing.Point(18, 53);
+            this.editPreviewButton.Name = "editPreviewButton";
+            this.editPreviewButton.Size = new System.Drawing.Size(58, 58);
+            this.editPreviewButton.TabIndex = 0;
+            this.editPreviewButton.Text = "button1";
+            this.editPreviewButton.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Linked File";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(85, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "클릭";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 12);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Button Index";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(214, 24);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(106, 21);
+            this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // editFontColorComboBox
+            // 
+            this.editFontColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.editFontColorComboBox.FormattingEnabled = true;
+            this.editFontColorComboBox.Location = new System.Drawing.Point(208, 268);
+            this.editFontColorComboBox.Name = "editFontColorComboBox";
+            this.editFontColorComboBox.Size = new System.Drawing.Size(121, 20);
+            this.editFontColorComboBox.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(206, 253);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(63, 12);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Font Color";
+            // 
+            // editFontSizeNumericUpDown
+            // 
+            this.editFontSizeNumericUpDown.Location = new System.Drawing.Point(17, 268);
+            this.editFontSizeNumericUpDown.Maximum = new decimal(new int[] {
+            72,
+            0,
+            0,
+            0});
+            this.editFontSizeNumericUpDown.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.editFontSizeNumericUpDown.Name = "editFontSizeNumericUpDown";
+            this.editFontSizeNumericUpDown.Size = new System.Drawing.Size(120, 21);
+            this.editFontSizeNumericUpDown.TabIndex = 17;
+            this.editFontSizeNumericUpDown.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 253);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 12);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Font Size";
+            // 
+            // editButtonNameTextBox
+            // 
+            this.editButtonNameTextBox.Location = new System.Drawing.Point(17, 217);
+            this.editButtonNameTextBox.Name = "editButtonNameTextBox";
+            this.editButtonNameTextBox.Size = new System.Drawing.Size(337, 21);
+            this.editButtonNameTextBox.TabIndex = 15;
+            this.editButtonNameTextBox.Text = "untitled";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 202);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(166, 12);
+            this.label12.TabIndex = 14;
+            this.label12.Text = "Input Launcher Button Name";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 152);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(64, 12);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Select File";
+            // 
+            // editOpenFileButton
+            // 
+            this.editOpenFileButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.editOpenFileButton.Font = new System.Drawing.Font("Gulim", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.editOpenFileButton.Location = new System.Drawing.Point(279, 166);
+            this.editOpenFileButton.Name = "editOpenFileButton";
+            this.editOpenFileButton.Size = new System.Drawing.Size(75, 23);
+            this.editOpenFileButton.TabIndex = 11;
+            this.editOpenFileButton.Text = "Open File";
+            this.editOpenFileButton.UseVisualStyleBackColor = false;
+            this.editOpenFileButton.Click += new System.EventHandler(this.editOpenFileButton_Click);
+            // 
+            // editSelectedFileTextBox
+            // 
+            this.editSelectedFileTextBox.BackColor = System.Drawing.Color.White;
+            this.editSelectedFileTextBox.Location = new System.Drawing.Point(17, 167);
+            this.editSelectedFileTextBox.Name = "editSelectedFileTextBox";
+            this.editSelectedFileTextBox.ReadOnly = true;
+            this.editSelectedFileTextBox.Size = new System.Drawing.Size(256, 21);
+            this.editSelectedFileTextBox.TabIndex = 12;
             // 
             // ConfigurationForm
             // 
@@ -265,6 +448,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.fontNumericUpDown)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.editTab.ResumeLayout(false);
+            this.editTab.PerformLayout();
+            this.editPreviewGroupBox.ResumeLayout(false);
+            this.editPreviewGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editFontSizeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +477,20 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox colorComboBox;
+        private System.Windows.Forms.GroupBox editPreviewGroupBox;
+        private System.Windows.Forms.Button editPreviewButton;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox editFontColorComboBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown editFontSizeNumericUpDown;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox editButtonNameTextBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button editOpenFileButton;
+        private System.Windows.Forms.TextBox editSelectedFileTextBox;
     }
 }

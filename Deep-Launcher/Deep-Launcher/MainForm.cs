@@ -21,8 +21,8 @@ namespace Deep_Launcher
         public MainForm()
         {
             InitializeComponent();
-            ButtonStyles = /*JsonConvert.DeserializeObject<List<ButtonStyle>>(settings.Json) ??*/ new List<ButtonStyle>();
-
+            ButtonStyles = JsonConvert.DeserializeObject<List<ButtonStyle>>(settings.Json) ?? new List<ButtonStyle>();
+            
             foreach (var item in ButtonStyles)
             {
                 addButton(item);
@@ -50,10 +50,10 @@ namespace Deep_Launcher
             {
                 Text = style.Title,
                 Name = style.Title,
-                Size = new Size(50, 50),
+                Size = new Size(58, 58),
                 ForeColor = style.Color,
                 Font = style.Font,
-                Location = new Point(3 + (50 * Buttons.Count), 2),
+                Location = new Point(3 + (58 * Buttons.Count), 2),
                 Tag = new[] { style.Path, style.Filename }
             };
 
@@ -68,7 +68,15 @@ namespace Deep_Launcher
             Button button = sender as Button;
             string[] tag = button.Tag as string[];
 
-            System.Diagnostics.Process.Start(tag[0]);
+            try
+            {
+                System.Diagnostics.Process.Start(tag[0]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(tag[0]+"\n파일을 찾을 수 없습니다!");
+                throw ex;
+            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
