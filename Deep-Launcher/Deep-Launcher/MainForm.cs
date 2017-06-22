@@ -12,9 +12,12 @@ namespace Deep_Launcher
 {
     public partial class MainForm : Form
     {
+        List<Button> Buttons = new List<Button>();
+
         public MainForm()
         {
             InitializeComponent();
+            
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -29,8 +32,28 @@ namespace Deep_Launcher
             ConfigurationForm cf = new ConfigurationForm(styleList);
             if(cf.ShowDialog() == DialogResult.OK)
             {
-                Console.WriteLine("hello");
+                addButton(styleList);
             }
+        }
+
+        private void addButton(List<ButtonStyle> styleList)
+        {
+            Button b = new Button();
+            b.Text = styleList[0].Title;
+            b.Name = styleList[0].Title;
+            b.Size = new Size(50, 50);
+            b.ForeColor = styleList[0].Color;
+            b.Font = styleList[0].Font;
+            b.Location = new Point(3 + (50 * Buttons.Count), 2);
+            b.Click += new EventHandler(startLauncher);
+            this.Controls.Add(b);
+            Buttons.Add(b);
+        }
+
+        void startLauncher(object sender, EventArgs e)
+        {
+            Button b = sender as Button;
+            MessageBox.Show(b.Text);
         }
     }
 }
