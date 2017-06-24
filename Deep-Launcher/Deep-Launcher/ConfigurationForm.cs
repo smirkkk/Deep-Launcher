@@ -14,6 +14,7 @@ namespace Deep_Launcher
     {
         private List<ButtonStyle> styleList;
         public static int editIndex = 0;
+        public static int delIndex = 0;
 
         public ConfigurationForm(List<ButtonStyle> styleList)
         {
@@ -160,6 +161,12 @@ namespace Deep_Launcher
         private void editButtonNameTextBox_TextChanged(object sender, EventArgs e)
         {
             editPreviewButton.Text = editButtonNameTextBox.Text;
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            editIndex = buttonComboBox.SelectedIndex;
+            styleList.RemoveAt(editIndex);
         }
     }
 }

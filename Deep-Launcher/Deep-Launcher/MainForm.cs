@@ -81,6 +81,15 @@ namespace Deep_Launcher
             {
                 editButton(ButtonStyles[ConfigurationForm.editIndex]);
             }
+            else if(result == DialogResult.Retry)
+            {
+                settings.Json = JsonConvert.SerializeObject(ButtonStyles);
+                settings.Save();
+                delButton(ConfigurationForm.editIndex);
+            }
+
+            settings.Json = JsonConvert.SerializeObject(ButtonStyles);
+            settings.Save();
         }
         
         private void addButton(ButtonStyle style)
@@ -116,11 +125,34 @@ namespace Deep_Launcher
             Buttons[index].Font = style.Font;
             Buttons[index].ForeColor = style.Color;
             Buttons[index].Tag = style.Path;
-
-            Console.WriteLine(Buttons[index].Tag);
         }
 
-            void startLauncher(object sender, EventArgs e)
+        private void delButton(int index)
+        {
+            currentPageIndex = 0;
+            buttonPanel.Controls.Clear();
+            Buttons.Clear();
+
+            ButtonStyles = JsonConvert.DeserializeObject<List<ButtonStyle>>(settings.Json) ?? new List<ButtonStyle>();
+
+            foreach (var item in ButtonStyles)
+            {
+                addButton(item);
+            }
+
+            prevButton.Enabled = false;
+
+            if (Buttons.Count < 5)
+            {
+                nextButton.Enabled = false;
+            }
+            else
+            {
+                nextButton.Enabled = true;
+            }
+        }
+
+        void startLauncher(object sender, EventArgs e)
         {
             Button button = sender as Button;
             string[] tag = button.Tag as string[];

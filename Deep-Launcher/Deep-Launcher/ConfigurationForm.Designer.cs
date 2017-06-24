@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.editTab = new System.Windows.Forms.TabPage();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.editSaveButton = new System.Windows.Forms.Button();
             this.editFontColorComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.editPreviewButton = new System.Windows.Forms.Button();
-            this.deleteButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontNumericUpDown)).BeginInit();
@@ -282,6 +282,17 @@
             this.editTab.Text = "Edit";
             this.editTab.UseVisualStyleBackColor = true;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.DialogResult = System.Windows.Forms.DialogResult.Retry;
+            this.deleteButton.Location = new System.Drawing.Point(279, 313);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 21;
+            this.deleteButton.Text = "DELETE";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
             // editSaveButton
             // 
             this.editSaveButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
@@ -451,16 +462,6 @@
             this.editPreviewButton.TabIndex = 0;
             this.editPreviewButton.Text = "button1";
             this.editPreviewButton.UseVisualStyleBackColor = true;
-            // 
-            // deleteButton
-            // 
-            this.deleteButton.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.deleteButton.Location = new System.Drawing.Point(279, 313);
-            this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(75, 23);
-            this.deleteButton.TabIndex = 21;
-            this.deleteButton.Text = "DELETE";
-            this.deleteButton.UseVisualStyleBackColor = true;
             // 
             // ConfigurationForm
             // 
