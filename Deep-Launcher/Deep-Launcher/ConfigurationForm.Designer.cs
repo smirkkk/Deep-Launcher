@@ -62,6 +62,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.editPreviewButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontNumericUpDown)).BeginInit();
@@ -261,6 +262,7 @@
             // 
             // editTab
             // 
+            this.editTab.Controls.Add(this.deleteButton);
             this.editTab.Controls.Add(this.editSaveButton);
             this.editTab.Controls.Add(this.editFontColorComboBox);
             this.editTab.Controls.Add(this.label10);
@@ -283,7 +285,7 @@
             // editSaveButton
             // 
             this.editSaveButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.editSaveButton.Location = new System.Drawing.Point(279, 313);
+            this.editSaveButton.Location = new System.Drawing.Point(194, 313);
             this.editSaveButton.Name = "editSaveButton";
             this.editSaveButton.Size = new System.Drawing.Size(75, 23);
             this.editSaveButton.TabIndex = 20;
@@ -324,7 +326,7 @@
             0,
             0});
             this.editFontSizeNumericUpDown.Name = "editFontSizeNumericUpDown";
-            this.editFontSizeNumericUpDown.Size = new System.Drawing.Size(120, 21);
+            this.editFontSizeNumericUpDown.Size = new System.Drawing.Size(138, 21);
             this.editFontSizeNumericUpDown.TabIndex = 17;
             this.editFontSizeNumericUpDown.Value = new decimal(new int[] {
             9,
@@ -450,6 +452,16 @@
             this.editPreviewButton.Text = "button1";
             this.editPreviewButton.UseVisualStyleBackColor = true;
             // 
+            // deleteButton
+            // 
+            this.deleteButton.DialogResult = System.Windows.Forms.DialogResult.No;
+            this.deleteButton.Location = new System.Drawing.Point(279, 313);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(75, 23);
+            this.deleteButton.TabIndex = 21;
+            this.deleteButton.Text = "DELETE";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -458,7 +470,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "ConfigurationForm";
             this.Text = "Setting";
-            this.Load += new System.EventHandler(this.configForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.addTab.ResumeLayout(false);
             this.addTab.PerformLayout();
@@ -509,5 +520,6 @@
         private System.Windows.Forms.TextBox editSelectedFileTextBox;
         private System.Windows.Forms.ComboBox buttonComboBox;
         private System.Windows.Forms.Button editSaveButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }

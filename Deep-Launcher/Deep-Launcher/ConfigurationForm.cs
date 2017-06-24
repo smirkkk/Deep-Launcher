@@ -87,10 +87,6 @@ namespace Deep_Launcher
             previewButton.Font = font;
         }
 
-        private void configForm_Load(object sender, EventArgs e)
-        {
-        }
-
         private void OKbutton_Click(object sender, EventArgs e)
         {
                 styleList.Add(new ButtonStyle { Title = previewButton.Text, Path = directoryTextbox.Text, Color = previewButton.ForeColor, Font = previewButton.Font, Filename = label4.Text });

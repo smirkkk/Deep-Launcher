@@ -17,6 +17,7 @@ namespace Deep_Launcher
         List<Button> Buttons = new List<Button>();
         List<ButtonStyle> ButtonStyles = new List<ButtonStyle>();
         Settings settings => Settings.Default;
+        int currentPageIndex = 0;
 
         public MainForm()
         {
@@ -27,6 +28,39 @@ namespace Deep_Launcher
             {
                 addButton(item);
             }
+
+            prevButton.Enabled = false;
+
+            if (Buttons.Count < 5)
+            {
+                nextButton.Enabled = false;
+            }
+            else
+            {
+                nextButton.Enabled = true;
+            }
+        }
+
+        private void setPrevNextButton()
+        {
+            if (currentPageIndex != 0)
+            {
+                prevButton.Enabled = true;
+            }
+            else
+            {
+                prevButton.Enabled = false;
+            }
+
+            if ((Buttons.Count - currentPageIndex) > 4)
+            {
+                nextButton.Enabled = true;
+            }
+            else
+            {
+                nextButton.Enabled = false;
+            }
+
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -58,14 +92,20 @@ namespace Deep_Launcher
                 Size = new Size(58, 58),
                 ForeColor = style.Color,
                 Font = style.Font,
-                Location = new Point(3 + (58 * Buttons.Count), 2),
+                Location = new Point(58 * (Buttons.Count % 4), 0),
                 Tag = new[] { style.Path }
             };
 
             button.Click += startLauncher;
-
-            this.Controls.Add(button);
             Buttons.Add(button);
+            if (Buttons.Count < 5)
+            {
+                buttonPanel.Controls.Add(button);
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void editButton(ButtonStyle style)
@@ -99,6 +139,37 @@ namespace Deep_Launcher
         {
             settings.Json = JsonConvert.SerializeObject(ButtonStyles);
             settings.Save();
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            buttonPanel.Controls.Clear();
+            currentPageIndex += 4;
+            
+            for (int i = 0; i < 4; i++)
+            {
+                buttonPanel.Controls.Add(Buttons[i+ currentPageIndex]);
+
+                if(i + currentPageIndex == Buttons.Count-1)
+                {
+                    break;
+                }
+            }
+            setPrevNextButton();
+            return;
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            buttonPanel.Controls.Clear();
+            currentPageIndex -= 4;
+
+            for (int i = 0; i < 4; i++)
+            {
+                buttonPanel.Controls.Add(Buttons[i + currentPageIndex]);
+            }
+            setPrevNextButton();
+            return;
         }
     }
 }
