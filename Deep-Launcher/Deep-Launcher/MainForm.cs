@@ -75,7 +75,6 @@ namespace Deep_Launcher
             catch (Exception ex)
             {
                 MessageBox.Show(tag[0]+"\n파일을 찾을 수 없습니다!");
-                throw ex;
             }
         }
 

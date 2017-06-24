@@ -19,14 +19,37 @@ namespace Deep_Launcher
             InitializeComponent();
             this.styleList = styleList;
 
+            var collection = colorComboBox.Items;
+            var editCollection = editFontColorComboBox.Items;
+            var type = typeof(Color);
+            var props = type.GetProperties();
+
+            var save = from prop in props
+                       where prop.PropertyType == typeof(Color)
+                       select prop.GetValue(null);
+
+            collection.AddRange(save.ToArray());
+            editCollection.AddRange(save.ToArray());
+
+            colorComboBox.SelectedIndex = 8;
+            
             if (styleList.Count != 0)
             {
+                editFontColorComboBox.SelectedText = styleList[0].Color.Name;
+                editFontSizeNumericUpDown.Value = (decimal)styleList[0].Font.Size;
+                
                 editPreviewButton.Text = styleList[0].Title;
                 editPreviewButton.ForeColor = styleList[0].Color;
                 editPreviewButton.Font = styleList[0].Font;
                 editSelectedFileTextBox.Text = styleList[0].Path;
                 editButtonNameTextBox.Text = styleList[0].Title;
                 label8.Text = styleList[0].Filename;
+                
+                foreach(var data in styleList)
+                {
+                    buttonComboBox.Items.Add(data.Title);
+                }
+                buttonComboBox.SelectedIndex = 0;
             }
 
 
@@ -65,17 +88,6 @@ namespace Deep_Launcher
 
         private void configForm_Load(object sender, EventArgs e)
         {
-            var collection = colorComboBox.Items;
-            var type = typeof(Color);
-            var props = type.GetProperties();
-
-            var save = from prop in props
-                       where prop.PropertyType == typeof(Color)
-                       select prop.GetValue(null);
-
-            collection.AddRange(save.ToArray());
-
-            colorComboBox.SelectedIndex = 8;
         }
 
         private void OKbutton_Click(object sender, EventArgs e)
@@ -100,6 +112,24 @@ namespace Deep_Launcher
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             var updown = sender as NumericUpDown;
+
+        }
+
+        private void buttonComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox combobox = sender as ComboBox;
+
+            int selected = combobox.SelectedIndex;
+
+            editPreviewButton.Text = styleList[selected].Title;
+            editPreviewButton.ForeColor = styleList[selected].Color;
+            editPreviewButton.Font = styleList[selected].Font;
+            editSelectedFileTextBox.Text = styleList[selected].Path;
+            editButtonNameTextBox.Text = styleList[selected].Title;
+            label8.Text = styleList[selected].Filename;
+            editFontColorComboBox.SelectedValue = styleList[selected].Color;
+            editFontSizeNumericUpDown.Value = (decimal)styleList[selected].Font.Size;
+
 
         }
     }

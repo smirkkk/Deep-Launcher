@@ -46,12 +46,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.editTab = new System.Windows.Forms.TabPage();
-            this.editPreviewGroupBox = new System.Windows.Forms.GroupBox();
-            this.editPreviewButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.editFontColorComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.editFontSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -61,14 +55,19 @@
             this.label13 = new System.Windows.Forms.Label();
             this.editOpenFileButton = new System.Windows.Forms.Button();
             this.editSelectedFileTextBox = new System.Windows.Forms.TextBox();
+            this.editPreviewGroupBox = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.editPreviewButton = new System.Windows.Forms.Button();
+            this.buttonComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontNumericUpDown)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.editTab.SuspendLayout();
-            this.editPreviewGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editFontSizeNumericUpDown)).BeginInit();
+            this.editPreviewGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // fileOpenButton
@@ -279,71 +278,13 @@
             this.editTab.Text = "Edit";
             this.editTab.UseVisualStyleBackColor = true;
             // 
-            // editPreviewGroupBox
-            // 
-            this.editPreviewGroupBox.Controls.Add(this.numericUpDown1);
-            this.editPreviewGroupBox.Controls.Add(this.label9);
-            this.editPreviewGroupBox.Controls.Add(this.label8);
-            this.editPreviewGroupBox.Controls.Add(this.label7);
-            this.editPreviewGroupBox.Controls.Add(this.editPreviewButton);
-            this.editPreviewGroupBox.Location = new System.Drawing.Point(17, 12);
-            this.editPreviewGroupBox.Name = "editPreviewGroupBox";
-            this.editPreviewGroupBox.Size = new System.Drawing.Size(337, 128);
-            this.editPreviewGroupBox.TabIndex = 0;
-            this.editPreviewGroupBox.TabStop = false;
-            this.editPreviewGroupBox.Text = "Preview";
-            // 
-            // editPreviewButton
-            // 
-            this.editPreviewButton.Location = new System.Drawing.Point(18, 53);
-            this.editPreviewButton.Name = "editPreviewButton";
-            this.editPreviewButton.Size = new System.Drawing.Size(58, 58);
-            this.editPreviewButton.TabIndex = 0;
-            this.editPreviewButton.Text = "button1";
-            this.editPreviewButton.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(85, 67);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 12);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Linked File";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(85, 84);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "클릭";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 28);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 12);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "Button Index";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(214, 24);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(106, 21);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
             // editFontColorComboBox
             // 
             this.editFontColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editFontColorComboBox.FormattingEnabled = true;
             this.editFontColorComboBox.Location = new System.Drawing.Point(208, 268);
             this.editFontColorComboBox.Name = "editFontColorComboBox";
-            this.editFontColorComboBox.Size = new System.Drawing.Size(121, 20);
+            this.editFontColorComboBox.Size = new System.Drawing.Size(146, 20);
             this.editFontColorComboBox.TabIndex = 19;
             // 
             // label10
@@ -433,6 +374,66 @@
             this.editSelectedFileTextBox.Size = new System.Drawing.Size(256, 21);
             this.editSelectedFileTextBox.TabIndex = 12;
             // 
+            // editPreviewGroupBox
+            // 
+            this.editPreviewGroupBox.Controls.Add(this.buttonComboBox);
+            this.editPreviewGroupBox.Controls.Add(this.label9);
+            this.editPreviewGroupBox.Controls.Add(this.label8);
+            this.editPreviewGroupBox.Controls.Add(this.label7);
+            this.editPreviewGroupBox.Controls.Add(this.editPreviewButton);
+            this.editPreviewGroupBox.Location = new System.Drawing.Point(17, 12);
+            this.editPreviewGroupBox.Name = "editPreviewGroupBox";
+            this.editPreviewGroupBox.Size = new System.Drawing.Size(337, 128);
+            this.editPreviewGroupBox.TabIndex = 0;
+            this.editPreviewGroupBox.TabStop = false;
+            this.editPreviewGroupBox.Text = "Preview";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 23);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 12);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "Select Button";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(85, 84);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "클릭";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Linked File";
+            // 
+            // editPreviewButton
+            // 
+            this.editPreviewButton.Location = new System.Drawing.Point(18, 53);
+            this.editPreviewButton.Name = "editPreviewButton";
+            this.editPreviewButton.Size = new System.Drawing.Size(58, 58);
+            this.editPreviewButton.TabIndex = 0;
+            this.editPreviewButton.Text = "button1";
+            this.editPreviewButton.UseVisualStyleBackColor = true;
+            // 
+            // buttonComboBox
+            // 
+            this.buttonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.buttonComboBox.FormattingEnabled = true;
+            this.buttonComboBox.Location = new System.Drawing.Point(191, 20);
+            this.buttonComboBox.Name = "buttonComboBox";
+            this.buttonComboBox.Size = new System.Drawing.Size(121, 20);
+            this.buttonComboBox.TabIndex = 4;
+            this.buttonComboBox.SelectedIndexChanged += new System.EventHandler(this.buttonComboBox_SelectedIndexChanged);
+            // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -450,10 +451,9 @@
             this.groupBox1.PerformLayout();
             this.editTab.ResumeLayout(false);
             this.editTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editFontSizeNumericUpDown)).EndInit();
             this.editPreviewGroupBox.ResumeLayout(false);
             this.editPreviewGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editFontSizeNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -479,7 +479,6 @@
         private System.Windows.Forms.ComboBox colorComboBox;
         private System.Windows.Forms.GroupBox editPreviewGroupBox;
         private System.Windows.Forms.Button editPreviewButton;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -492,5 +491,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button editOpenFileButton;
         private System.Windows.Forms.TextBox editSelectedFileTextBox;
+        private System.Windows.Forms.ComboBox buttonComboBox;
     }
 }
