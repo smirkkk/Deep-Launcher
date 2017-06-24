@@ -37,13 +37,18 @@ namespace Deep_Launcher
         private void configButton_Click(object sender, EventArgs e)
         {
             ConfigurationForm form = new ConfigurationForm(ButtonStyles);
+            DialogResult result = form.ShowDialog();
 
-            if (form.ShowDialog() == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 addButton(ButtonStyles[ButtonStyles.Count - 1]);
             }
+            else if(result == DialogResult.Yes)
+            {
+                editButton(ButtonStyles[ConfigurationForm.editIndex]);
+            }
         }
-
+        
         private void addButton(ButtonStyle style)
         {
             Button button = new Button
@@ -54,7 +59,7 @@ namespace Deep_Launcher
                 ForeColor = style.Color,
                 Font = style.Font,
                 Location = new Point(3 + (58 * Buttons.Count), 2),
-                Tag = new[] { style.Path, style.Filename }
+                Tag = new[] { style.Path }
             };
 
             button.Click += startLauncher;
@@ -63,7 +68,19 @@ namespace Deep_Launcher
             Buttons.Add(button);
         }
 
-        void startLauncher(object sender, EventArgs e)
+        private void editButton(ButtonStyle style)
+        {
+            int index = ConfigurationForm.editIndex;
+            Buttons[index].Text = style.Title;
+            Buttons[index].Name = style.Title;
+            Buttons[index].Font = style.Font;
+            Buttons[index].ForeColor = style.Color;
+            Buttons[index].Tag = style.Path;
+
+            Console.WriteLine(Buttons[index].Tag);
+        }
+
+            void startLauncher(object sender, EventArgs e)
         {
             Button button = sender as Button;
             string[] tag = button.Tag as string[];

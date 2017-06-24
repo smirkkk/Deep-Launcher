@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.editTab = new System.Windows.Forms.TabPage();
+            this.editSaveButton = new System.Windows.Forms.Button();
             this.editFontColorComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.editFontSizeNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -56,11 +57,11 @@
             this.editOpenFileButton = new System.Windows.Forms.Button();
             this.editSelectedFileTextBox = new System.Windows.Forms.TextBox();
             this.editPreviewGroupBox = new System.Windows.Forms.GroupBox();
+            this.buttonComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.editPreviewButton = new System.Windows.Forms.Button();
-            this.buttonComboBox = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.addTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fontNumericUpDown)).BeginInit();
@@ -186,7 +187,7 @@
             this.OKbutton.Name = "OKbutton";
             this.OKbutton.Size = new System.Drawing.Size(75, 23);
             this.OKbutton.TabIndex = 6;
-            this.OKbutton.Text = "Add";
+            this.OKbutton.Text = "ADD";
             this.OKbutton.UseVisualStyleBackColor = true;
             this.OKbutton.Click += new System.EventHandler(this.OKbutton_Click);
             // 
@@ -260,6 +261,7 @@
             // 
             // editTab
             // 
+            this.editTab.Controls.Add(this.editSaveButton);
             this.editTab.Controls.Add(this.editFontColorComboBox);
             this.editTab.Controls.Add(this.label10);
             this.editTab.Controls.Add(this.editFontSizeNumericUpDown);
@@ -278,6 +280,17 @@
             this.editTab.Text = "Edit";
             this.editTab.UseVisualStyleBackColor = true;
             // 
+            // editSaveButton
+            // 
+            this.editSaveButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.editSaveButton.Location = new System.Drawing.Point(279, 313);
+            this.editSaveButton.Name = "editSaveButton";
+            this.editSaveButton.Size = new System.Drawing.Size(75, 23);
+            this.editSaveButton.TabIndex = 20;
+            this.editSaveButton.Text = "SAVE";
+            this.editSaveButton.UseVisualStyleBackColor = true;
+            this.editSaveButton.Click += new System.EventHandler(this.editSaveButton_Click);
+            // 
             // editFontColorComboBox
             // 
             this.editFontColorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -286,6 +299,7 @@
             this.editFontColorComboBox.Name = "editFontColorComboBox";
             this.editFontColorComboBox.Size = new System.Drawing.Size(146, 20);
             this.editFontColorComboBox.TabIndex = 19;
+            this.editFontColorComboBox.SelectedIndexChanged += new System.EventHandler(this.editFontColorComboBox_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -317,6 +331,7 @@
             0,
             0,
             0});
+            this.editFontSizeNumericUpDown.ValueChanged += new System.EventHandler(this.editFontSizeNumericUpDown_ValueChanged);
             // 
             // label11
             // 
@@ -334,6 +349,7 @@
             this.editButtonNameTextBox.Size = new System.Drawing.Size(337, 21);
             this.editButtonNameTextBox.TabIndex = 15;
             this.editButtonNameTextBox.Text = "untitled";
+            this.editButtonNameTextBox.TextChanged += new System.EventHandler(this.editButtonNameTextBox_TextChanged);
             // 
             // label12
             // 
@@ -388,6 +404,16 @@
             this.editPreviewGroupBox.TabStop = false;
             this.editPreviewGroupBox.Text = "Preview";
             // 
+            // buttonComboBox
+            // 
+            this.buttonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.buttonComboBox.FormattingEnabled = true;
+            this.buttonComboBox.Location = new System.Drawing.Point(191, 20);
+            this.buttonComboBox.Name = "buttonComboBox";
+            this.buttonComboBox.Size = new System.Drawing.Size(121, 20);
+            this.buttonComboBox.TabIndex = 4;
+            this.buttonComboBox.SelectedIndexChanged += new System.EventHandler(this.buttonComboBox_SelectedIndexChanged);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -423,16 +449,6 @@
             this.editPreviewButton.TabIndex = 0;
             this.editPreviewButton.Text = "button1";
             this.editPreviewButton.UseVisualStyleBackColor = true;
-            // 
-            // buttonComboBox
-            // 
-            this.buttonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.buttonComboBox.FormattingEnabled = true;
-            this.buttonComboBox.Location = new System.Drawing.Point(191, 20);
-            this.buttonComboBox.Name = "buttonComboBox";
-            this.buttonComboBox.Size = new System.Drawing.Size(121, 20);
-            this.buttonComboBox.TabIndex = 4;
-            this.buttonComboBox.SelectedIndexChanged += new System.EventHandler(this.buttonComboBox_SelectedIndexChanged);
             // 
             // ConfigurationForm
             // 
@@ -492,5 +508,6 @@
         private System.Windows.Forms.Button editOpenFileButton;
         private System.Windows.Forms.TextBox editSelectedFileTextBox;
         private System.Windows.Forms.ComboBox buttonComboBox;
+        private System.Windows.Forms.Button editSaveButton;
     }
 }

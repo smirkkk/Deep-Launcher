@@ -13,6 +13,7 @@ namespace Deep_Launcher
     public partial class ConfigurationForm : Form
     {
         private List<ButtonStyle> styleList;
+        public static int editIndex = 0;
 
         public ConfigurationForm(List<ButtonStyle> styleList)
         {
@@ -131,6 +132,38 @@ namespace Deep_Launcher
             editFontSizeNumericUpDown.Value = (decimal)styleList[selected].Font.Size;
 
 
+        }
+
+        private void editFontSizeNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            var updown = sender as NumericUpDown;
+
+            var font = new Font("Gulim", (float)updown.Value, FontStyle.Regular, GraphicsUnit.Point, 129);
+
+            editPreviewButton.Font = font;
+        }
+
+        private void editFontColorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var combo = sender as ComboBox;
+            var color = (Color)combo.SelectedItem;
+
+            editPreviewButton.ForeColor = color;
+        }
+
+        private void editSaveButton_Click(object sender, EventArgs e)
+        {
+            editIndex = buttonComboBox.SelectedIndex;
+            styleList[editIndex].Title = editPreviewButton.Text;
+            styleList[editIndex].Path = editSelectedFileTextBox.Text;
+            styleList[editIndex].Color = editPreviewButton.ForeColor;
+            styleList[editIndex].Font = editPreviewButton.Font;
+            styleList[editIndex].Filename = label8.Text;
+        }
+
+        private void editButtonNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            editPreviewButton.Text = editButtonNameTextBox.Text;
         }
     }
 }
