@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.exitButton = new System.Windows.Forms.Button();
             this.configButton = new System.Windows.Forms.Button();
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.buttonToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // exitButton
@@ -125,6 +127,7 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button prevButton;
         private System.Windows.Forms.Panel buttonPanel;
+        private System.Windows.Forms.ToolTip buttonToolTip;
     }
 }
 

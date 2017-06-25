@@ -98,6 +98,7 @@ namespace Deep_Launcher
             };
 
             button.Click += startLauncher;
+            buttonToolTip.SetToolTip(button, style.Filename);
             Buttons.Add(button);
             if (Buttons.Count < 5)
             {
@@ -117,6 +118,7 @@ namespace Deep_Launcher
             Buttons[index].Font = style.Font;
             Buttons[index].ForeColor = style.Color;
             Buttons[index].Tag = style.Path;
+            buttonToolTip.SetToolTip(Buttons[index], style.Filename);
         }
 
         private void delButton(int index)
@@ -161,7 +163,7 @@ namespace Deep_Launcher
                 {
                     MessageBox.Show(tag[0] + "\n" + ex.Message);
                 }
-                else if(ex.Message.Equals("시스템이 지정된 드라이브를 찾을 수 없습니다"))
+                else /*if(ex.Message.Equals("시스템이 지정된 드라이브를 찾을 수 없습니다"))*/
                 {
                     MessageBox.Show(ex.Message);
                 }
