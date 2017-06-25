@@ -29,16 +29,7 @@ namespace Deep_Launcher
                 addButton(item);
             }
 
-            prevButton.Enabled = false;
-
-            if (Buttons.Count < 5)
-            {
-                nextButton.Enabled = false;
-            }
-            else
-            {
-                nextButton.Enabled = true;
-            }
+            setPrevNextButton();
         }
 
         private void setPrevNextButton()
@@ -76,6 +67,7 @@ namespace Deep_Launcher
             if (result == DialogResult.OK)
             {
                 addButton(ButtonStyles[ButtonStyles.Count - 1]);
+                setPrevNextButton();
             }
             else if(result == DialogResult.Yes)
             {
@@ -163,7 +155,16 @@ namespace Deep_Launcher
             }
             catch (Exception ex)
             {
-                MessageBox.Show(tag[0]+"\n파일을 찾을 수 없습니다!");
+                Console.WriteLine("\n\n" + ex.Message);
+
+                if (ex.Message.Equals("지정된 파일을 찾을 수 없습니다"))
+                {
+                    MessageBox.Show(tag[0] + "\n" + ex.Message);
+                }
+                else if(ex.Message.Equals("시스템이 지정된 드라이브를 찾을 수 없습니다"))
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
